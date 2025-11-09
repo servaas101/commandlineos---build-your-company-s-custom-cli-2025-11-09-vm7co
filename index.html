@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CommandlineOS - Build Your Company's Custom CLI. Create, customize, and command your CLI your way with our enterprise-grade CLI builder.">
+    <meta name="keywords" content="CLI, Command Line Interface, Developer Tools, Enterprise Software">
+    <meta name="author" content="CommandlineOS">
+    <meta property="og:title" content="CommandlineOS — Build Your Company's Custom CLI">
+    <meta property="og:description" content="Create. Customize. Command — Your CLI, Your Way.">
+    <meta property="og:type" content="website">
+    <title>CommandlineOS — Build Your Company's Custom CLI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .hero-overlay {
+            background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+        }
+        
+        .cta-bg {
+            background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .feature-card {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .feature-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .testimonial-card {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-primary {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+        
+        .mobile-menu {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .mobile-menu.show {
+            display: block;
+        }
+        
+        .faq-item {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 300ms ease-in-out;
+        }
+        
+        .faq-item.active .faq-content {
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            transition: transform 300ms ease-in-out;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .benefit-image {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .benefit-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .link-hover {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .link-hover:hover {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 w-full bg-gray-900 bg-opacity-95 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                        <i class="fas fa-terminal mr-2"></i>CommandlineOS
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="link-hover font-medium text-gray-300 hover:text-blue-400">Home</a>
+                    <a href="#features" class="link-hover font-medium text-gray-300 hover:text-blue-400">Features</a>
+                    <a href="#benefits" class="link-hover font-medium text-gray-300 hover:text-blue-400">Benefits</a>
+                    <a href="#about" class="link-hover font-medium text-gray-300 hover:text-blue-400">About</a>
+                    <a href="#testimonials" class="link-hover font-medium text-gray-300 hover:text-blue-400">Testimonials</a>
+                    <a href="#faq" class="link-hover font-medium text-gray-300 hover:text-blue-400">FAQ</a>
+                    <a href="#contact" class="link-hover font-medium text-gray-300 hover:text-blue-400">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-button md:hidden focus:outline-none" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-2xl text-gray-300 hover:text-blue-400 transition duration-300"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden bg-gray-800 border-t border-gray-700">
+            <div class="px-4 py-4 space-y-2">
+                <a href="#home" class="block px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition duration-300">Home</a>
+                <a href="#features" class="block px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition duration-300">Features</a>
+                <a href="#benefits" class="block px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition duration-300">Benefits</a>
+                <a href="#about" class="block px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition duration-300">About</a>
+                <a href="#testimonials" class="block px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition duration-300">Testimonials</a>
+                <a href="#faq" class="block px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition duration-300">FAQ</a>
+                <a href="#contact" class="block px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-blue-400 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-75"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+                CommandlineOS <br class="hidden md:block" />
+                <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Build Your Company's Custom CLI</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Create. Customize. Command — Your CLI, Your Way.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="https://elitelayouts.co.za" class="btn-primary inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg transform transition duration-300">
+                    Get Started Now <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#features" class="inline-block px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-lg border border-gray-700 transform transition duration-300 hover:scale-105">
+                    Learn More <i class="fas fa-chevron-down ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-gray-800 bg-opacity-50 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
+                    <i class="fas fa-bolt text-3xl text-blue-400 mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Lightning Fast</h3>
+                    <p class="text-gray-400 text-sm">Deploy your CLI in minutes, not months</p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
+                    <i class="fas fa-shield-alt text-3xl text-blue-400 mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Enterprise Ready</h3>
+                    <p class="text-gray-400 text-sm">Built for security and scalability</p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
+                    <i class="fas fa-users text-3xl text-blue-400 mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Team Collaboration</h3>
+                    <p class="text-gray-400 text-sm">Full control and visibility for your team</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-gray-800 bg-opacity-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Powerful Features</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Everything you need to build, deploy, and manage your custom CLI
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1: CLI Builder -->
+                <div class="feature-card bg-gray-900 p-8 rounded-lg border border-gray-700 hover:border-blue-500">
+                    <div class="bg-blue-600 bg-opacity-20 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">CLI Builder</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Intuitive drag-and-drop interface to create powerful command-line interfaces without writing boilerplate code. Build complex commands with subcommands, flags, and options effortlessly.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mr-3 mt-1"></i>
+                            <span>Visual command builder</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mr-3 mt-1"></i>
+                            <span>Auto-generated documentation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mr-3 mt-1"></i>
+                            <span>Real-time preview</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2: SDK & API Integration -->
+                <div class="feature-card bg-gray-900 p-8 rounded-lg border border-gray-700 hover:border-blue-500">
+                    <div class="bg-blue-600 bg-opacity-20 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-plug text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">SDK & API Integration</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Seamlessly integrate with your existing APIs and services. Our comprehensive SDK supports multiple programming languages and frameworks for maximum flexibility.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mr-3 mt-1"></i>
+                            <span>Multi-language SDK support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mr-3 mt-1"></i>
+                            <span>REST & GraphQL ready</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mr-3 mt-1"></i>
+                            <span>Webhook support</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3: Enterprise Team Control -->
+                <div class="feature-card bg-gray-900 p-8 rounded-lg border border-gray-700 hover:border-blue-500">
+                    <div class="bg-blue-600 bg-opacity-20 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-lock text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Enterprise Team Control</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Manage permissions, audit logs, and team access with granular control. Enterprise-grade security ensures your CLI remains protected and compliant.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mr-3 mt-1"></i>
+                            <span>Role-based access control</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mr-3 mt-1"></i>
+                            <span>Comprehensive audit logs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mr-3 mt-1"></i>
+                            <span>SSO & 2FA support</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-24 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Choose CommandlineOS</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Transform your development workflow and accelerate team productivity
+                </p>
+            </div>
+            
+            <!-- Benefit 1: Unify Internal Tooling -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg overflow-hidden shadow-2xl benefit-image">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Unified tooling dashboard" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-3xl md:text-4xl font-bold mb-6">Unify Internal Tooling</h3>
+                        <p class="text-lg text-gray-400 mb-6 leading-relaxed">
+                            Consolidate disparate tools and scripts into a single, cohesive CLI platform. Eliminate the chaos of managing multiple command-line tools across your organization and provide your team with a unified interface they can rely on.
+                        </p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                        <i class="fas fa-check text-blue-400 text-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">Centralized Management</h4>
+                                    <p class="text-gray-400 mt-1">Control all internal tools from one dashboard</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                        <i class="fas fa-check text-blue-400 text-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">Consistent Experience</h4>
+                                    <p class="text-gray-400 mt-1">Unified interface across all internal tools</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                        <i class="fas fa-check text-blue-400 text-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">Reduced Maintenance</h4>
+                                    <p class="text-gray-400 mt-1">Lower overhead with fewer systems to maintain</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="https://elitelayouts.co.za" class="btn-primary inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg transform transition duration-300">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Benefit 2: Automate Project Workflows -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-1">
+                        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg overflow-hidden shadow-2xl benefit-image">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="Workflow automation" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="order-2">
+                        <h3 class="text-3xl md:text-4xl font-bold mb-6">Automate Project Workflows</h3>
+                        <p class="text-lg text-gray-400 mb-6 leading-relaxed">
+                            Streamline repetitive tasks and complex workflows with powerful automation capabilities. Build custom commands that orchestrate your entire development pipeline, from testing to deployment, saving your team countless hours every week.
+                        </p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                        <i class="fas fa-check text-blue-400 text-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">Time Savings</h4>
+                                    <p class="text-gray-400 mt-1">Reduce manual work by up to 80%</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                        <i class="fas fa-check text-blue-400 text-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">Error Reduction</h4>
+                                    <p class="text-gray-400 mt-1">Eliminate human error in repetitive tasks</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                        <i class="fas fa-check text-blue-400 text-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">Consistency</h4>
+                                    <p class="text-gray-400 mt-1">Ensure standardized processes across teams</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="https://elitelayouts.co.za" class="btn-primary inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg transform transition duration-300">
+                            Get Started <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Benefit 3: Enterprise Scalability -->
+            <div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg overflow-hidden shadow-2xl benefit-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-adf4e565db7d?w=600&h=400&fit=crop" alt="Enterprise scalability" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-3xl md:text-4xl font-bold mb-6">Enterprise Scalability</h3>
+                        <p class="text-lg text-gray-400 mb-6 leading-relaxed">
+                            Scale from startup to enterprise with a platform built for growth. Our infrastructure supports teams of any size, with advanced security, compliance, and performance features that grow with your organization.
+                        </p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                        <i class="fas fa-check text-blue-400 text-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">Global Infrastructure</h4>
+                                    <p class="text-gray-400 mt-1">Deploy and scale across multiple regions</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                        <i class="fas fa-check text-blue-400 text-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">99.99% Uptime</h4>
+                                    <p class="text-gray-400 mt-1">Enterprise-grade reliability and redundancy</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                        <i class="fas fa-check text-blue-400 text-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">Compliance Ready</h4>
+                                    <p class="text-gray-400 mt-1">SOC 2, GDPR, and HIPAA compliant</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="https://elitelayouts.co.za" class="btn-primary inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg transform transition duration-300">
+                            Explore Enterprise <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-24 bg-gray-800 bg-opacity-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">See It In Action</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Watch how CommandlineOS transforms your development workflow
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-black rounded-lg overflow-hidden shadow-2xl border border-gray-700">
+                <div class="video-container">
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/-Jl9l3O9Hm8?si" 
+                        title="CommandlineOS Demo Video" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        class="rounded-lg">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">About CommandlineOS</h2>
+                <p class="text-xl text-gray-400">Our story and mission</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="CommandlineOS Team" class="rounded-lg shadow-2xl">
+                </div>
+                <div>
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-400">Our Story</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                            CommandlineOS was founded in 2020 by a team of experienced software engineers who were frustrated with the fragmented landscape of internal tooling. We realized that most organizations were reinventing the wheel with custom CLI tools, leading to inconsistency, maintenance nightmares, and wasted development time. We set out to build a unified platform that would empower teams to create, manage, and scale their CLI tools effortlessly. Today, CommandlineOS serves hundreds of companies, from innovative startups to Fortune 500 enterprises, helping them streamline their development workflows and accelerate time-to-market.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-blue-400">Our Mission</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            Our mission is to revolutionize how teams build and manage command-line interfaces. We believe that powerful, intuitive CLI tools should be accessible to every organization, regardless of size or technical expertise. We're committed to providing a platform that combines ease of use with enterprise-grade capabilities, enabling our customers to focus on what matters most—building great products. Our core values of innovation, reliability, and customer-centricity guide every decision we make, ensuring that CommandlineOS remains the leading choice for organizations seeking to optimize their development workflows and empower their teams.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-gray-800 bg-opacity-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">What Our Customers Say</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Join hundreds of organizations already transforming their development workflows
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-900 p-8 rounded-lg border border-gray-700 hover:border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "CommandlineOS has been a game-changer for our team. We reduced our internal tooling maintenance by 60% in the first quarter alone. The CLI builder is incredibly intuitive, and our developers were productive within hours. The enterprise team controls have given us the visibility and security we needed."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white">Sarah Mitchell</p>
+                            <p class="text-gray-400 text-sm">Engineering Director, TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-900 p-8 rounded-lg border border-gray-700 hover:border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "The SDK integration was seamless. We connected our entire CI/CD pipeline in a weekend. Our deployment workflow is now 10x faster, and we've eliminated countless manual errors. The support team is responsive and genuinely helpful."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white">James Rodriguez</p>
+                            <p class="text-gray-400 text-sm">DevOps Lead, CloudScale Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-900 p-8 rounded-lg border border-gray-700 hover:border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "As a startup, we needed to move fast without sacrificing quality. CommandlineOS allowed us to build professional CLI tools without hiring dedicated infrastructure engineers. The compliance features have also been invaluable as we've grown and attracted enterprise customers."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white">Emma Chen</p>
+                            <p class="text-gray-400 text-sm">CTO, StartupLabs</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-gray-900 p-8 rounded-lg border border-gray-700 hover:border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "We manage CLI tools across 15 different teams, and CommandlineOS has been transformative. The centralized dashboard gives us unprecedented visibility, and the automation capabilities have saved us thousands of hours. ROI was evident within the first month."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white">Michael Foster</p>
+                            <p class="text-gray-400 text-sm">VP of Engineering, Enterprise Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-400">
+                    Find answers to common questions about CommandlineOS
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-700 transition duration-300" aria-expanded="false">
+                        <h3 class="text-lg font-bold text-white">What programming languages does CommandlineOS support?</h3>
+                        <i class="fas fa-chevron-down faq-icon text-blue-400 transition duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-400">
+                        <p class="leading-relaxed">
+                            CommandlineOS provides comprehensive SDK support for all major programming languages including Python, JavaScript/Node.js, Go, Rust, Java, C#, PHP, and Ruby. Our SDKs are designed to be language-agnostic, allowing you to integrate with your existing technology stack seamlessly. Additionally, our REST API and GraphQL endpoints ensure compatibility with virtually any programming language or framework you might be using.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-700 transition duration-300" aria-expanded="false">
+                        <h3 class="text-lg font-bold text-white">How long does it take to build and deploy a CLI with CommandlineOS?</h3>
+                        <i class="fas fa-chevron-down faq-icon text-blue-400 transition duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-400">
+                        <p class="leading-relaxed">
+                            One of the key advantages of CommandlineOS is its speed to deployment. Simple CLIs can be built and deployed in minutes using our intuitive visual builder. More complex CLIs with multiple commands, integrations, and custom logic typically take a few hours to a day to develop and test. This is dramatically faster than traditional CLI development, which can take weeks or months. Our built-in testing and deployment tools further accelerate the process, allowing you to go from concept to production-ready CLI in record time.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-700 transition duration-300" aria-expanded="false">
+                        <h3 class="text-lg font-bold text-white">Is CommandlineOS suitable for enterprise use?</h3>
+                        <i class="fas fa-chevron-down faq-icon text-blue-400 transition duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-400">
+                        <p class="leading-relaxed">
+                            Absolutely! CommandlineOS is built from the ground up with enterprise requirements in mind. We provide SOC 2 Type II certification, GDPR compliance, HIPAA readiness, and support for advanced security features including SSO, multi-factor authentication, and role-based access control. Our infrastructure guarantees 99.99% uptime with global redundancy, and we offer dedicated support, custom integrations, and SLA guarantees for enterprise customers. Many Fortune 500 companies rely on CommandlineOS for their mission-critical CLI operations.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-700 transition duration-300" aria-expanded="false">
+                        <h3 class="text-lg font-bold text-white">What kind of support and training does CommandlineOS provide?</h3>
+                        <i class="fas fa-chevron-down faq-icon text-blue-400 transition duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 text-gray-400">
+                        <p class="leading-relaxed">
+                            We're committed to your success! All CommandlineOS customers receive access to comprehensive documentation, video tutorials, and interactive guides. Our support team is available 24/7 to help with technical issues and best practices. We also offer live onboarding sessions for new teams, customized training workshops, and access to our community Slack channel where users share tips and solutions. Enterprise customers receive dedicated account managers, priority support, and personalized training tailored to their specific use cases and requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 cta-bg opacity-20"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-75"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your CLI?</h2>
+            <p class="text-xl text-gray-300 mb-12 leading-relaxed">
+                Join hundreds of companies already using CommandlineOS to streamline their development workflows and accelerate team productivity.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://elitelayouts.co.za" class="btn-primary inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg transform transition duration-300">
+                    Start Your Free Trial <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#contact" class="inline-block px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white font-bold rounded-lg border border-gray-600 transform transition duration-300 hover:scale-105">
+                    Schedule a Demo <i class="fas fa-calendar ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-400">
+                    Have questions? Our team is here to help.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                    <i class="fas fa-envelope text-blue-400 text-lg"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-white">Email</h4>
+                                <a href="mailto:servaas@elitelayouts.co.za" class="text-blue-400 hover:text-blue-300 transition duration-300">
+                                    servaas@elitelayouts.co.za
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                    <i class="fas fa-globe text-blue-400 text-lg"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-white">Website</h4>
+                                <a href="https://elitelayouts.co.za" class="text-blue-400 hover:text-blue-300 transition duration-300">
+                                    elitelayouts.co.za
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 bg-opacity-20">
+                                    <i class="fas fa-headset text-blue-400 text-lg"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-white">Support</h4>
+                                <p class="text-gray-400">Available 24/7 for all customers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+                    <h3 class="text-2xl font-bold mb-6">Quick Links</h3>
+                    
+                    <div class="space-y-4">
+                        <a href="https://elitelayouts.co.za" class="block p-4 bg-gray-900 rounded-lg border border-gray-700 hover:border-blue-500 transition duration-300 group">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold group-hover:text-blue-400 transition duration-300">Get Started</span>
+                                <i class="fas fa-arrow-right text-gray-500 group-hover:text-blue-400 transition duration-300"></i>
+                            </div>
+                            <p class="text-sm text-gray-400 mt-2">Begin your free trial today</p>
+                        </a>
+                        
+                        <a href="#features" class="block p-4 bg-gray-900 rounded-lg border border-gray-700 hover:border-blue-500 transition duration-300 group">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold group-hover:text-blue-400 transition duration-300">Learn Features</span>
+                                <i class="fas fa-arrow-right text-gray-500 group-hover:text-blue-400 transition duration-300"></i>
+                            </div>
+                            <p class="text-sm text-gray-400 mt-2">Explore what CommandlineOS offers</p>
+                        </a>
+                        
+                        <a href="#faq" class="block p-4 bg-gray-900 rounded-lg border border-gray-700 hover:border-blue-500 transition duration-300 group">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold group-hover:text-blue-400 transition duration-300">View FAQ</span>
+                                <i class="fas fa-arrow-right text-gray-500 group-hover:text-blue-400 transition duration-300"></i>
+                            </div>
+                            <p class="text-sm text-gray-400 mt-2">Find answers to common questions</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                        <i class="fas fa-terminal mr-2"></i>CommandlineOS
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Build your company's custom CLI with our enterprise-grade platform. Create, customize, and command your way to success.
+                    </p>
+                </div>
+                
+                <!-- Product Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Product</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#features" class="text-gray-400 hover:text-blue-400 transition duration-300">Features</a></li>
+                        <li><a href="#benefits" class="text-gray-400 hover:text-blue-400 transition duration-300">Benefits</a></li>
+                        <li><a href="https://elitelayouts.co.za" class="text-gray-400 hover:text-blue-400 transition duration-300">Pricing</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-blue-400 transition duration-300">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-400 hover:text-blue-400 transition duration-300">About Us</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-blue-400 transition duration-300">Testimonials</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-blue-400 transition duration-300">Blog</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-blue-400 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-blue-400 transition duration-300">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-blue-400 transition duration-300">Terms of Service</a></li>
+                        <li><a href="https://elitelayouts.co.za" class="text-gray-400 hover:text-blue-400 transition duration-300">Security</a></li>
+                        <li><a href="https://elitelayouts.co.za" class="text-gray-400 hover:text-blue-400 transition duration-300">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Links & Copyright -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-6 md:mb-0">
+                        <p class="text-gray-400">
+                            &copy; 2024 CommandlineOS. All rights reserved. | 
+                            <a href="mailto:servaas@elitelayouts.co.za" class="text-blue-400 hover:text-blue-300 transition duration-300">servaas@elitelayouts.co.za</a>
+                        </p>
+                    </div>
+                    
+                    <div class="flex space-x-6">
+                        <a href="https://twitter.com" class="text-gray-400 hover:text-blue-400 transition duration-300" aria-label="Twitter">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="https://linkedin.com" class="text-gray-400 hover:text-blue-400 transition duration-300" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://github.com" class="text-gray-400 hover:text-blue-400 transition duration-300" aria-label="GitHub">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://facebook.com" class="text-gray-400 hover:text-blue-400 transition duration-300" aria-label="Facebook">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('show');
+            });
+        });
+        
+        // FAQ Accordion Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const faqItem = toggle.closest('.faq-item');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current FAQ item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    toggle.setAttribute('aria-expanded', 'true');
+                } else {
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+        
+        // Smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animation for elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe feature cards and testimonials
+        document.querySelectorAll('.feature-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 600ms ease-out, transform 600ms ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
