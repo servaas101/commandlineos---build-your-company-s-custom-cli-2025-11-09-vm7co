@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mastering CLI Development: Best Practices for Building Enterprise Command-Line Interfaces with CommandlineOS.">
+    <meta name="keywords" content="CLI development, command line interface, best practices, enterprise tools, developer productivity">
+    <meta name="author" content="CommandlineOS">
+    <meta property="og:title" content="Mastering CLI Development: Best Practices for Enterprise Command-Line Interfaces">
+    <meta property="og:description" content="Learn expert strategies for building powerful, user-friendly CLI tools that scale with your organization.">
+    <meta property="og:type" content="article">
+    <title>Mastering CLI Development: Best Practices for Enterprise Command-Line Interfaces</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .hero-overlay {
+            background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+        }
+        
+        .cta-bg {
+            background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .feature-card {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .feature-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .testimonial-card {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-primary {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+        
+        .mobile-menu {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .mobile-menu.show {
+            display: block;
+        }
+        
+        .faq-item {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 300ms ease-in-out;
+        }
+        
+        .faq-item.active .faq-content {
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            transition: transform 300ms ease-in-out;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .benefit-image {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .benefit-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .link-hover {
+            transition: all 300ms ease-in-out;
+        }
+        
+        .link-hover:hover {
+            color: #3b82f6;
+        }
+
+        .blog-content {
+            line-height: 1.8;
+        }
+
+        .blog-content h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1rem;
+            margin-left: 1.5rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 w-full bg-gray-900 bg-opacity-95 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="https://servaas101.github.io/commandlineos---build-your-company-s-custom-cli-2025-11-09-vm7co" class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                        <i class="fas fa-terminal mr-2"></i>CommandlineOS
+                    </a>
+                </div>
+                <a href="https://servaas101.github.io/commandlineos---build-your-company-s-custom-cli-2025-11-09-vm7co" class="link-hover font-medium text-gray-300 hover:text-blue-400">
+                    ← Back
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Content Section -->
+    <section class="pt-32 pb-24 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Blog Header -->
+            <div class="mb-12">
+                <div class="mb-8">
+                    <span class="inline-block px-4 py-2 bg-blue-600 bg-opacity-20 text-blue-400 rounded-full text-sm font-semibold mb-4">
+                        <i class="fas fa-bookmark mr-2"></i>CLI Development
+                    </span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Mastering CLI Development: Best Practices for Enterprise Command-Line Interfaces
+                    </h1>
+                    <div class="flex items-center text-gray-400 space-x-4 mb-6">
+                        <span><i class="fas fa-calendar mr-2"></i>January 15, 2024</span>
+                        <span><i class="fas fa-clock mr-2"></i>8 min read</span>
+                        <span><i class="fas fa-user mr-2"></i>By CommandlineOS Team</span>
+                    </div>
+                </div>
+
+                <!-- Featured Image -->
+                <div class="mb-12 rounded-lg overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=675&fit=crop" alt="Developer working on command-line interface development with multiple monitors displaying code and terminal windows" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+
+            <!-- Blog Content -->
+            <article class="blog-content text-gray-300">
+                <p class="text-lg leading-relaxed mb-8">
+                    In today's fast-paced software development landscape, command-line interfaces (CLIs) have become indispensable tools for developers and operations teams. From deployment automation to database management, CLIs power the backbone of modern development workflows. However, building effective, scalable, and user-friendly CLI tools requires more than just basic scripting knowledge. This comprehensive guide explores the best practices for developing enterprise-grade command-line interfaces that your team will love to use.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Understanding the Importance of Well-Designed CLIs</h2>
+                <p>
+                    Command-line interfaces represent one of the most direct ways developers interact with tools and systems. A well-designed CLI can dramatically improve productivity, reduce errors, and streamline complex workflows. Conversely, a poorly designed CLI creates friction, leads to mistakes, and frustrates users. Enterprise organizations recognize that investing in CLI development directly impacts developer productivity and operational efficiency.
+                </p>
+                <p>
+                    The shift towards DevOps practices has amplified the importance of robust CLI tools. Teams managing infrastructure, deploying applications, and orchestrating complex processes rely on CLIs that are intuitive, reliable, and powerful. Building these tools requires a strategic approach that balances functionality with usability.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Best Practice #1: Prioritize User Experience and Discoverability</h2>
+                <p>
+                    One of the most critical aspects of CLI development is ensuring that users can easily discover and understand available commands. A CLI that requires users to consult documentation for every operation is fundamentally broken, regardless of its capabilities.
+                </p>
+                <p>
+                    Implement comprehensive help systems with the <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">--help</code> and <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">-h</code> flags for every command and subcommand. Provide clear, concise descriptions that explain what each command does and how to use it. Include usage examples that demonstrate real-world scenarios users might encounter.
+                </p>
+                <p>
+                    Consider implementing interactive help features, command suggestions, and autocomplete functionality. When users make mistakes or enter invalid commands, provide helpful error messages that guide them toward the correct syntax. These seemingly small touches dramatically improve the user experience and reduce support burden.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Best Practice #2: Implement Consistent Command Structure and Naming</h2>
+                <p>
+                    Consistency in command structure and naming conventions is essential for building intuitive CLIs. Users should be able to predict how to perform tasks based on patterns they've learned from other commands. This principle of least surprise reduces cognitive load and accelerates learning.
+                </p>
+                <p>
+                    Establish clear naming conventions for commands, subcommands, and flags. Use verb-noun patterns for commands (e.g., <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">deploy-service</code>, <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">list-databases</code>) that clearly indicate what action the command performs. Maintain consistency in flag naming across your CLI—use <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">--output</code> instead of sometimes using <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">--format</code> for the same functionality.
+                </p>
+                <p>
+                    Organize related commands into logical groups using subcommands. For example, all database-related operations might fall under a <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">db</code> command with subcommands like <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">db create</code>, <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">db migrate</code>, and <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">db backup</code>.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Best Practice #3: Handle Errors Gracefully and Informatively</h2>
+                <p>
+                    Error handling is often overlooked in CLI development, yet it's crucial for user satisfaction. When something goes wrong, users need clear, actionable information about what happened and how to fix it.
+                </p>
+                <p>
+                    Implement meaningful exit codes that allow scripts and automation tools to handle different error scenarios appropriately. Use exit code 0 for success, and non-zero codes for various failure conditions. Document these exit codes so developers can build reliable automation around your CLI.
+                </p>
+                <p>
+                    Provide descriptive error messages that explain the problem in plain language. Instead of cryptic errors like "Invalid input," provide context: "Error: Database host 'invalid-host' could not be resolved. Please verify the hostname and try again." Include suggestions for common mistakes and link to relevant documentation.
+                </p>
+                <p>
+                    Consider implementing verbose and debug modes that provide additional output for troubleshooting. Use flags like <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">--verbose</code> or <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">--debug</code> to allow users to get more detailed information when needed.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Best Practice #4: Support Flexible Configuration and Automation</h2>
+                <p>
+                    Enterprise users often need to automate CLI operations or integrate them into larger workflows. Your CLI should support configuration files, environment variables, and command-line arguments to accommodate diverse use cases.
+                </p>
+                <p>
+                    Allow users to specify configuration through multiple channels with a clear precedence order: command-line arguments override environment variables, which override configuration files, which override defaults. This flexibility enables both interactive use and automated scripting.
+                </p>
+                <p>
+                    Support structured output formats like JSON and YAML in addition to human-readable text. This enables easy parsing and integration with other tools and scripts. Use flags like <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">--json</code> or <code class="bg-gray-800 px-2 py-1 rounded text-blue-400">--output-format</code> to allow users to choose their preferred format.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Best Practice #5: Implement Robust Security Measures</h2>
+                <p>
+                    CLIs often interact with sensitive systems and data, making security a paramount concern. Implement security best practices to protect both the tool and its users.
+                </p>
+                <p>
+                    Never accept sensitive information like passwords as command-line arguments, as these can be visible in process lists and shell history. Instead, use interactive prompts or environment variables. Implement secure credential storage and retrieval mechanisms for APIs and services your CLI interacts with.
+                </p>
+                <p>
+                    Validate and sanitize all user input to prevent injection attacks. Implement proper authentication and authorization checks before performing sensitive operations. Log security-relevant events for audit trails, and ensure logs don't contain sensitive information.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Best Practice #6: Provide Comprehensive Documentation and Examples</h2>
+                <p>
+                    Even the most intuitive CLI benefits from thorough documentation. Create multiple levels of documentation to serve different user needs: quick-start guides for new users, detailed command references, and advanced tutorials for power users.
+                </p>
+                <p>
+                    Include numerous real-world examples that demonstrate how to accomplish common tasks. Document not just the syntax, but the reasoning behind design decisions. Explain edge cases and limitations. Keep documentation up-to-date with each release.
+                </p>
+                <p>
+                    Consider creating video tutorials for complex workflows. Host documentation on a searchable website so users can quickly find what they need. Provide a clear path for users to ask questions and report issues.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Best Practice #7: Design for Performance and Scalability</h2>
+                <p>
+                    CLI performance directly impacts user experience, especially for operations performed repeatedly. Optimize your CLI to start quickly and execute commands efficiently.
+                </p>
+                <p>
+                    Avoid unnecessary initialization overhead. Load only the modules and data required for the specific command being executed. Cache frequently accessed data when appropriate. Provide progress indicators for long-running operations so users know the CLI is working.
+                </p>
+                <p>
+                    Consider implementing parallel execution for operations that can run concurrently. Allow users to specify resource constraints and timeout values for operations that interact with external systems.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Best Practice #8: Embrace Version Control and Backward Compatibility</h2>
+                <p>
+                    As your CLI evolves, maintaining backward compatibility prevents breaking existing scripts and workflows. When you must make breaking changes, communicate them clearly and provide migration paths.
+                </p>
+                <p>
+                    Use semantic versioning to communicate the nature of changes. Deprecate commands and flags gradually, providing warnings before removing them entirely. Document all changes in detailed release notes.
+                </p>
+                <p>
+                    Consider implementing feature flags that allow users to opt into new behaviors while maintaining compatibility with existing scripts. Test your CLI against real-world usage patterns to ensure updates don't break common workflows.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Best Practice #9: Monitor and Gather User Feedback</h2>
+                <p>
+                    The best way to improve your CLI is to understand how users actually use it. Implement telemetry and analytics to understand which commands are most frequently used, where users encounter errors, and how long operations take.
+                </p>
+                <p>
+                    Create channels for users to provide feedback, report bugs, and suggest features. Actively engage with your user community to understand their pain points and needs. Use this information to guide development priorities.
+                </p>
+                <p>
+                    Conduct user testing with representatives from your target audience. Watch how they interact with your CLI and identify points of confusion or frustration. These insights are invaluable for improving usability.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Best Practice #10: Leverage Modern CLI Development Frameworks</h2>
+                <p>
+                    Modern CLI development frameworks abstract away boilerplate code and provide built-in solutions for common challenges like argument parsing, help generation, and output formatting. Leveraging these frameworks allows you to focus on your CLI's unique functionality rather than reinventing the wheel.
+                </p>
+                <p>
+                    Platforms like CommandlineOS provide comprehensive solutions for building, deploying, and managing CLIs at scale. These platforms handle infrastructure concerns, security, team collaboration, and versioning, allowing your team to focus on creating great CLI experiences.
+                </p>
+
+                <h2 class="text-3xl font-bold text-white">Conclusion: Building CLIs for Success</h2>
+                <p>
+                    Developing enterprise-grade command-line interfaces requires thoughtful design, attention to user experience, and commitment to best practices. By prioritizing discoverability, consistency, error handling, and security, you create CLIs that your team will actually enjoy using. These practices not only improve developer productivity but also reduce support burden and enable reliable automation at scale.
+                </p>
+                <p>
+                    The investment in building quality CLIs pays dividends across your organization. Tools that are intuitive, reliable, and well-documented become force multipliers for your team, enabling them to accomplish more with less friction. Whether you're building internal tools or customer-facing products, applying these best practices ensures your CLIs contribute positively to your organization's success.
+                </p>
+            </article>
+
+            <!-- Author Bio -->
+            <div class="mt-16 pt-8 border-t border-gray-700">
+                <div class="bg-gray-800 bg-opacity-50 p-8 rounded-lg border border-gray-700">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-blue-400 to-blue-600">
+                                <i class="fas fa-user text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">About CommandlineOS Team</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                The CommandlineOS team consists of experienced software engineers and developer advocates dedicated to helping organizations build better command-line interfaces. With decades of combined experience in enterprise software development, we're passionate about sharing best practices and tools that empower developers to create exceptional CLI experiences.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-white mb-8">Related Articles</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg border border-gray-700 hover:border-blue-500 transition duration-300">
+                        <h4 class="text-lg font-bold text-white mb-2">Automating DevOps Workflows with Custom CLIs</h4>
+                        <p class="text-gray-400 mb-4">Learn how to leverage CLI tools to automate complex DevOps processes and improve team efficiency.</p>
+                        <a href="#" class="text-blue-400 hover:text-blue-300 transition duration-300">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg border border-gray-700 hover:border-blue-500 transition duration-300">
+                        <h4 class="text-lg font-bold text-white mb-2">CLI Security: Protecting Your Command-Line Tools</h4>
+                        <p class="text-gray-400 mb-4">Comprehensive guide to implementing security best practices in your CLI applications.</p>
+                        <a href="#" class="text-blue-400 hover:text-blue-300 transition duration-300">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-16 bg-gradient-to-r from-blue-600 to-blue-800 p-8 rounded-lg">
+                <h3 class="text-2xl font-bold text-white mb-4">Ready to Build Your Enterprise CLI?</h3>
+                <p class="text-blue-100 mb-6">
+                    CommandlineOS provides everything you need to create, deploy, and manage professional CLI tools at scale. Start building today with our intuitive platform.
+                </p>
+                <a href="https://elitelayouts.co.za" class="btn-primary inline-block px-6 py-3 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition duration-300">
+                    Get Started Free <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                        <i class="fas fa-terminal mr-2"></i>CommandlineOS
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Build your company's custom CLI with our enterprise-grade platform. Create, customize, and command your way to success.
+                    </p>
+                </div>
+                
+                <!-- Product Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Product</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://servaas101.github.io/commandlineos---build-your-company-s-custom-cli-2025-11-09-vm7co#features" class="text-gray-400 hover:text-blue-400 transition duration-300">Features</a></li>
+                        <li><a href="https://servaas101.github.io/commandlineos---build-your-company-s-custom-cli-2025-11-09-vm7co#benefits" class="text-gray-400 hover:text-blue-400 transition duration-300">Benefits</a></li>
+                        <li><a href="https://elitelayouts.co.za" class="text-gray-400 hover:text-blue-400 transition duration-300">Pricing</a></li>
+                        <li><a href="https://servaas101.github.io/commandlineos---build-your-company-s-custom-cli-2025-11-09-vm7co#faq" class="text-gray-400 hover:text-blue-400 transition duration-300">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://servaas101.github.io/commandlineos---build-your-company-s-custom-cli-2025-11-09-vm7co#about" class="text-gray-400 hover:text-blue-400 transition duration-300">About Us</a></li>
+                        <li><a href="https://servaas101.github.io/commandlineos---build-your-company-s-custom-cli-2025-11-09-vm7co#testimonials" class="text-gray-400 hover:text-blue-400 transition duration-300">Testimonials</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-blue-400 transition duration-300">Blog</a></li>
+                        <li><a href="https://servaas101.github.io/commandlineos---build-your-company-s-custom-cli-2025-11-09-vm7co#contact" class="text-gray-400 hover:text-blue-400 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-blue-400 transition duration-300">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-blue-400 transition duration-300">Terms of Service</a></li>
+                        <li><a href="https://elitelayouts.co.za" class="text-gray-400 hover:text-blue-400 transition duration-300">Security</a></li>
+                        <li><a href="https://elitelayouts.co.za" class="text-gray-400 hover:text-blue-400 transition duration-300">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Links & Copyright -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-6 md:mb-0">
+                        <p class="text-gray-400">
+                            &copy; 2024 CommandlineOS. All rights reserved. | 
+                            <a href="mailto:servaas@elitelayouts.co.za" class="text-blue-400 hover:text-blue-300 transition duration-300">servaas@elitelayouts.co.za</a>
+                        </p>
+                    </div>
+                    
+                    <div class="flex space-x-6">
+                        <a href="https://twitter.com" class="text-gray-400 hover:text-blue-400 transition duration-300" aria-label="Twitter">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="https://linkedin.com" class="text-gray-400 hover:text-blue-400 transition duration-300" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://github.com" class="text-gray-400 hover:text-blue-400 transition duration-300" aria-label="GitHub">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://facebook.com" class="text-gray-400 hover:text-blue-400 transition duration-300" aria-label="Facebook">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('show');
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('show');
+                });
+            });
+        }
+        
+        // FAQ Accordion Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const faqItem = toggle.closest('.faq-item');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current FAQ item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    toggle.setAttribute('aria-expanded', 'true');
+                } else {
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+        
+        // Smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animation for elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe feature cards and testimonials
+        document.querySelectorAll('.feature-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 600ms ease-out, transform 600ms ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
